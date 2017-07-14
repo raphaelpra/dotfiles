@@ -1,0 +1,43 @@
+[user]
+	email = raphael@imagine-app.fr
+	name = Raphael P
+
+[color]
+	ui = true
+[difftool "sourcetree"]
+	cmd = /usr/bin/vimdiff $LOCAL $REMOTE
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	ci = commit
+	aa = add --all .
+	rb = rebase
+	pu = push
+	cp = cherry-pick
+	lg = log --all --oneline --decorate --date=relative --format=rp
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	bump = !git add config/initializers/version.rb && git commit -m 'Bump version'
+[core]
+	editor = /usr/local/bin/nvim
+	excludesfile = /Users/raphael/.gitignore_global
+	autocrlf = input
+[push]
+	default = simple
+[pretty]
+	rp = %C(bold blue)-%h-%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)
+[pull]
+	rebase = true
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
