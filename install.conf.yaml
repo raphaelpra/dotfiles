@@ -8,6 +8,7 @@
     ~/.gitignore_global: 'gitignore_global'
     ~/.gitconfig: 'gitconfig'
     ~/.irbrc: 'irbrc'
+    ~/.ssh/config: 'ssh_config'
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
