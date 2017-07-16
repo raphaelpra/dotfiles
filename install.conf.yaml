@@ -11,6 +11,10 @@
     ~/.vimrc: 'vimrc'
     ~/.vim/colors/molokai.vim: 'molokai/colors/molokai.vim'
     ~/.ssh/config: 'ssh_config'
+    ~/.config:
+      path: 'config'
+      force: true
+      relink: true
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
