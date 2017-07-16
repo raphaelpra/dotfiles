@@ -8,6 +8,8 @@
     ~/.gitignore_global: 'gitignore_global'
     ~/.gitconfig: 'gitconfig'
     ~/.irbrc: 'irbrc'
+    ~/.vimrc: 'vimrc'
+    ~/.vim/colors/molokai.vim: 'molokai/colors/molokai.vim'
     ~/.ssh/config: 'ssh_config'
 
 - shell:
