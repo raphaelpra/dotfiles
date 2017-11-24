@@ -5,7 +5,7 @@
 [color]
 	ui = true
 [difftool "sourcetree"]
-	cmd = /usr/bin/vimdiff $LOCAL $REMOTE
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -22,6 +22,7 @@
 	lg = log --all --oneline --decorate --date=relative --format=rp
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	bump = !git add config/initializers/version.rb && git commit -m 'Bump version'
+	vimdiff = difftool
 [core]
 	editor = /usr/local/bin/nvim
 	excludesfile = /Users/raphael/.gitignore_global
@@ -41,3 +42,9 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[commit]
+	template = /Users/raphael/.stCommitMsg
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false

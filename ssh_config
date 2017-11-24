@@ -1,2 +1,65 @@
 Host *
     UseKeychain yes
+
+Host atoutjob-dev
+Hostname 62.39.122.8
+User imagineapp
+ServerAliveInterval 600
+
+Host atoutjob-uat
+Hostname 62.39.122.13
+User imagineapp
+ServerAliveInterval 600
+
+Host bb
+Hostname 192.168.7.2
+User ubuntu
+ServerAliveInterval 600
+StrictHostKeyChecking no
+UserKnownHostsFile=/dev/null
+
+Host fs-dev2
+Hostname dev2.foosball-society.com
+User root
+ServerAliveInterval 600
+
+Host fs-dev
+Hostname ovh1.tecbak.com
+User root
+ServerAliveInterval 600
+
+Host fs-charge
+Hostname ovh4.tecbak.com
+User root
+ServerAliveInterval 600
+
+Host fs-preprod
+Hostname preprod.foosball-society.com
+User foosball
+ServerAliveInterval 600
+
+Host fs-depot
+Hostname ovh6.tecbak.com
+User depot
+ServerAliveInterval 600
+
+Host fs-prod
+Hostname foosball-society.com
+User root
+ServerAliveInterval 600
+
+Host fs-backup
+Hostname ovh2.tecbak.com
+User foosball
+ServerAliveInterval 600
+
+Host iapp
+Hostname 62.210.140.35
+User iapp
+ServerAliveInterval 600
+
+Host babys
+Hostname ovh1.tecbak.com
+User root
+ServerAliveInterval 600
+
