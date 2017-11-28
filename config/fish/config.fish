@@ -5,3 +5,4 @@ set -g fish_user_path /usr/local/sbin $HOME/anaconda/bin $GOPATH/bin
 rvm default
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
