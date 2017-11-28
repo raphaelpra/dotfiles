@@ -1,0 +1,1 @@
+/Users/raphael/.config/fisherman/rvm/functions/rvm.fish
