@@ -1,0 +1,1 @@
+complete -c ws -f -a "(ls $ws_folder)"

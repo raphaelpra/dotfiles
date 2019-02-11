@@ -35,3 +35,4 @@ SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_user_paths:\x2e/bin\x1e/Users/Raphael/\x2easdf/shims\x1e/usr/local/opt/asdf/bin
 SETUVAR theme_complete_path:yes
+SETUVAR ws_folder:/Users/raphael/workspace
