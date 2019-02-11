@@ -19,4 +19,5 @@ spec:
   ~/.asdfrc: asdfrc
   ~/.default-gems: default-gems
   ~/.vimrc: vimrc
+  ~/.vim: vim
   ~/.vscode: vscode
