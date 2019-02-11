@@ -1,4 +1,4 @@
 
 
 # Pluggin manager
-source /usr/local/opt/asdf/asdf.fish
+source ~/.asdf/asdf.fish

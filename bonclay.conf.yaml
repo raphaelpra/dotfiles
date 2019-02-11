@@ -17,7 +17,6 @@ spec:
   ~/.ssh/config: ssh_config
   ~/.config: config
   ~/.asdfrc: asdfrc
-  ~/.asdf: asdf
   ~/.default-gems: default-gems
   ~/.vimrc: vimrc
   ~/.vscode: vscode
