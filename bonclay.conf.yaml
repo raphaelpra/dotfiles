@@ -1,0 +1,20 @@
+# For a detailed description on the different options and how to configure them,
+# refer to the user guide: https://github.com/talal/bonclay/blob/master/doc/guide.md
+backup:
+  overwrite: false
+
+restore:
+  overwrite: false
+
+sync:
+  clean: true
+  overwrite: true
+
+spec:
+  ~/.gitconfig: gitconfig
+  ~/.gitignore_global: gitignore_global
+  ~/.irbrc: irbrc
+  ~/.ssh/config: ssh_config
+  # ../../examplefile: ../file
+  # ~/example dir: dir
+  # ../example dir/some other dir: ../new dir
