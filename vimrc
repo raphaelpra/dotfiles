@@ -50,7 +50,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " Turning on the syntax coloring on Max os x
-colorscheme molokai
+" colorscheme molokai
 
 syntax on
 

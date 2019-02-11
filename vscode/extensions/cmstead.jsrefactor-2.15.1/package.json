@@ -1,0 +1,599 @@
+{
+	"name": "jsrefactor",
+	"displayName": "JS Refactor",
+	"description": "Automated refactoring tools to smooth your development workflow",
+	"version": "2.15.1",
+	"publisher": "cmstead",
+	"repository": {
+		"url": "https://github.com/cmstead/js-refactor.git",
+		"type": "git"
+	},
+	"author": {
+		"name": "Chris Stead"
+	},
+	"engines": {
+		"vscode": "^0.12.0"
+	},
+	"categories": [
+		"Formatters",
+		"Programming Languages",
+		"Other",
+		"Snippets"
+	],
+	"activationEvents": [
+		"onCommand:cmstead.jsRefactor.convertToArrowFunction",
+		"onCommand:cmstead.jsRefactor.convertToFunctionExpression",
+		"onCommand:cmstead.jsRefactor.convertToTemplateLiteral",
+		"onCommand:cmstead.jsRefactor.addExport",
+		"onCommand:cmstead.jsRefactor.extractMethod",
+		"onCommand:cmstead.jsRefactor.extractVariable",
+		"onCommand:cmstead.jsRefactor.inlineVariable",
+		"onCommand:cmstead.jsRefactor.introduceFunction",
+		"onCommand:cmstead.jsRefactor.liftAndNameFunctionExpression",
+		"onCommand:cmstead.jsRefactor.negateExpression",
+		"onCommand:cmstead.jsRefactor.selectRefactoring",
+		"onCommand:cmstead.jsRefactor.shiftParams",
+		"onCommand:cmstead.jsRefactor.rename",
+		"onCommand:cmstead.jsRefactor.wrapInArrowFunction",
+		"onCommand:cmstead.jsRefactor.wrapInAsyncFunction",
+		"onCommand:cmstead.jsRefactor.wrapInCondition",
+		"onCommand:cmstead.jsRefactor.wrapInFunction",
+		"onCommand:cmstead.jsRefactor.wrapInGenerator",
+		"onCommand:cmstead.jsRefactor.wrapInIIFE",
+		"onCommand:cmstead.jsRefactor.wrapInTryCatch",
+		"onCommand:cmstead.jsRefactor.wrapSelection"
+	],
+	"main": "./extension",
+	"scripts": {
+		"test": "node ./node_modules/mocha/bin/mocha --recursive ./test/**/*.test.js",
+		"build": "tfx extension create --manifest-globs vss-integration.json",
+		"build-docs": "node build-docs",
+		"publish": "vsce publish"
+	},
+	"tags": [
+		"Javascript",
+		"Refactoring",
+		"Automation",
+		"Language-support",
+		"Snippets"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "javascript",
+				"extensions": [
+					".js",
+					".vue"
+				],
+				"aliases": [
+					"JS"
+				]
+			},
+			{
+				"id": "html",
+				"extensions": [
+					".htm",
+					".html"
+				],
+				"aliases": [
+					"HTML"
+				]
+			}
+		],
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/jsrefactor.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/jsrefactor.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "cmstead.jsRefactor.convertToArrowFunction",
+				"title": "JS Refactor: Convert To Arrow Function",
+				"description": "Convert function from a function expression to an arrow function"
+			},
+			{
+				"command": "cmstead.jsRefactor.convertToFunctionExpression",
+				"title": "JS Refactor: Convert To Function Expression",
+				"description": "Convert arrow function to a function expression"
+			},
+			{
+				"command": "cmstead.jsRefactor.convertToTemplateLiteral",
+				"title": "JS Refactor: Convert String Concat To Template Literal",
+				"description": "Convert string concatenation expression to template literal"
+			},
+			{
+				"command": "cmstead.jsRefactor.addExport",
+				"title": "JS Refactor: Add Export",
+				"description": "Export function or variable declaration from local module"
+			},
+			{
+				"command": "cmstead.jsRefactor.extractMethod",
+				"title": "JS Refactor: Extract Method",
+				"description": "Extract selection into a new function"
+			},
+			{
+				"command": "cmstead.jsRefactor.extractVariable",
+				"title": "JS Refactor: Extract Variable",
+				"description": "Extract value into a variable"
+			},
+			{
+				"command": "cmstead.jsRefactor.inlineVariable",
+				"title": "JS Refactor: Inline Variable",
+				"description": "Inline variable"
+			},
+			{
+				"command": "cmstead.jsRefactor.introduceFunction",
+				"title": "JS Refactor: Introduce Function",
+				"description": "Introduce function from call or variable assignment"
+			},
+			{
+				"command": "cmstead.jsRefactor.liftAndNameFunctionExpression",
+				"title": "JS Refactor: Lift and Name Function Expression",
+				"description": "Lift function expression out of current context and add a name"
+			},
+			{
+				"command": "cmstead.jsRefactor.negateExpression",
+				"title": "JS Refactor: Negate Expression",
+				"description": "Negate Expression"
+			},
+			{
+				"command": "cmstead.jsRefactor.rename",
+				"title": "JS Refactor: Rename (F2 alias)",
+				"description": "Rename"
+			},
+			{
+				"command": "cmstead.jsRefactor.selectRefactoring",
+				"title": "JS Refactor: Select Refactoring",
+				"description": "Select refactoring to apply"
+			},
+			{
+				"command": "cmstead.jsRefactor.shiftParams",
+				"title": "JS Refactor: Shift Parameters",
+				"description": "Shift function parameters to new positions"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapInArrowFunction",
+				"title": "JS Refactor: Wrap In Arrow Function",
+				"description": "Wrap code in an arrow function"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapInAsyncFunction",
+				"title": "JS Refactor: Wrap In Async Function",
+				"description": "Wrap code in an async function"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapInCondition",
+				"title": "JS Refactor: Wrap In Condition",
+				"description": "Wrap code in a condition block"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapInFunction",
+				"title": "JS Refactor: Wrap In Function",
+				"description": "Wrap code in a named function"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapInGenerator",
+				"title": "JS Refactor: Wrap In Generator",
+				"description": "Wrap code in a named generator"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapInIIFE",
+				"title": "JS Refactor: Wrap In IIFE",
+				"description": "Wrap code in an immediately invoked function expression"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapInTryCatch",
+				"title": "JS Refactor: Wrap In Try/Catch Block",
+				"description": "Wrap code in a try/catch block"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapSelection",
+				"title": "JS Refactor: Wrap Selection",
+				"description": "Wrap selected code with generated code"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "cmstead.jsRefactor.selectRefactoring",
+				"key": "ctrl+shift+j r",
+				"mac": "cmd+shift+j r"
+			},
+			{
+				"command": "cmstead.jsRefactor.extractMethod",
+				"key": "ctrl+shift+j m",
+				"mac": "cmd+shift+j m",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "cmstead.jsRefactor.extractVariable",
+				"key": "ctrl+shift+j v",
+				"mac": "cmd+shift+j v",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "cmstead.jsRefactor.inlineVariable",
+				"key": "ctrl+shift+j i",
+				"mac": "cmd+shift+j i"
+			},
+			{
+				"command": "cmstead.jsRefactor.convertToArrowFunction",
+				"key": "ctrl+shift+j a",
+				"mac": "cmd+shift+j a"
+			},
+			{
+				"command": "cmstead.jsRefactor.convertToFunctionExpression",
+				"key": "ctrl+shift+j f",
+				"mac": "cmd+shift+j f"
+			},
+			{
+				"command": "cmstead.jsRefactor.convertToTemplateLiteral",
+				"key": "ctrl+shift+j l",
+				"mac": "cmd+shift+j l"
+			},
+			{
+				"command": "cmstead.jsRefactor.addExport",
+				"key": "ctrl+shift+j x",
+				"mac": "cmd+shift+j x"
+			},
+			{
+				"command": "cmstead.jsRefactor.shiftParams",
+				"key": "ctrl+shift+j s",
+				"mac": "cmd+shift+j s"
+			},
+			{
+				"command": "cmstead.jsRefactor.wrapSelection",
+				"key": "ctrl+shift+j w",
+				"mac": "cmd+shift+j w",
+				"when": "editorHasSelection"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "cmstead.jsRefactor.convertToArrowFunction",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToArrowFunction",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToFunctionExpression",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToFunctionExpression",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToTemplateLiteral",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToTemplateLiteral",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.addExport",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.addExport",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.extractMethod",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.extractMethod",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.extractVariable",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.extractVariable",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.inlineVariable",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.inlineVariable",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.introduceFunction",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.introduceFunction",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.liftAndNameFunctionExpression",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.liftAndNameFunctionExpression",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.negateExpression",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.negateExpression",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.rename",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.rename",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.selectRefactoring",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.selectRefactoring",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.shiftParams",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.shiftParams",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInArrowFunction",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInArrowFunction",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInAsyncFunction",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInAsyncFunction",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInCondition",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInCondition",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInFunction",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInFunction",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInGenerator",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInGenerator",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInIIFE",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInIIFE",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInTryCatch",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapInTryCatch",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapSelection",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapSelection",
+					"when": "editorHasSelection && editorLangId == html"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "cmstead.jsRefactor.convertToArrowFunction",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToArrowFunction",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToFunctionExpression",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToFunctionExpression",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToTemplateLiteral",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.convertToTemplateLiteral",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.addExport",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.addExport",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.extractMethod",
+					"group": "5_refactor",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.extractMethod",
+					"group": "5_refactor",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.extractVariable",
+					"group": "5_refactor",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.extractVariable",
+					"group": "5_refactor",
+					"when": "editorHasSelection && editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.inlineVariable",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.inlineVariable",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.introduceFunction",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.introduceFunction",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.liftAndNameFunctionExpression",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.liftAndNameFunctionExpression",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.negateExpression",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.negateExpression",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.rename",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.rename",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.shiftParams",
+					"group": "5_refactor",
+					"when": "editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.shiftParams",
+					"group": "5_refactor",
+					"when": "editorLangId == html"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapSelection",
+					"group": "5_refactor",
+					"when": "editorHasSelection && editorLangId == javascript"
+				},
+				{
+					"command": "cmstead.jsRefactor.wrapSelection",
+					"group": "5_refactor",
+					"when": "editorHasSelection && editorLangId == html"
+				}
+			]
+		}
+	},
+	"dependencies": {
+		"babel-core": "^6.25.0",
+		"babylon": "^6.17.4",
+		"dject": "^1.4.0",
+		"esprima": "^4.0.0",
+		"estraverse": "^4.2.0",
+		"jfp": "^4.0.0",
+		"signet": "^6.4.2",
+		"typescript": "^2.4.2"
+	},
+	"devDependencies": {
+		"approvals": "https://github.com/cmstead/Approvals.NodeJS.git",
+		"chai": "^3.4.1",
+		"datamother": "^2.2.4",
+		"eslint": "^4.3.0",
+		"gulp": "^3.9.1",
+		"mocha": "^2.3.4",
+		"mockery": "^1.4.0",
+		"sinon": "^1.17.2",
+		"vscode": "^1.1.8"
+	},
+	"links": {
+		"getstarted": {
+			"uri": "https://github.com/cmstead/js-refactor/blob/master/README.md"
+		},
+		"support": {
+			"uri": "https://github.com/cmstead/js-refactor/issues"
+		}
+	},
+	"icon": "images/js-refactor-icon.png",
+	"galleryBanner": {
+		"color": "#ffffee"
+	},
+	"public": true,
+	"__metadata": {
+		"id": "74f34f8a-245e-4133-8617-a3a94b5a417e",
+		"publisherId": "1ed030c7-648c-4d40-b4be-4703a10ed9d4",
+		"publisherDisplayName": "Chris Stead"
+	}
+}
