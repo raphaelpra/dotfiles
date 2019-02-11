@@ -1,1 +1,1 @@
-complete -c ws -f -a "(ls $ws_folder)"
+complete -c ws -f -a "(ls -F $ws_folder | grep /)"
