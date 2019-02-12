@@ -33,6 +33,8 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:\x2e/bin\x1e/Users/Raphael/\x2easdf/shims\x1e/usr/local/opt/asdf/bin
+SETUVAR fish_user_paths:/Users/raphael/\x2easdf/shims\x1e/Users/Raphael/\x2easdf/shims\x1e/usr/local/opt/asdf/bin
 SETUVAR theme_complete_path:yes
 SETUVAR ws_folder:/Users/raphael/workspace
+SETUVAR ws_git_access_token:27a6a2f33f0340116f04f0b5ae9e2c81c5fe3b82
+SETUVAR ws_git_user:raphaelpra

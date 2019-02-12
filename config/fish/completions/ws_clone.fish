@@ -1,0 +1,1 @@
+complete -c ws_clone -f -a '(curl "https://api.github.com/users/$ws_git_user/repos?access_token=$ws_git_access_token" | jq ".[] | .full_name")'
